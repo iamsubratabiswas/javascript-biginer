@@ -27,7 +27,9 @@ var arrayName=[1,2,3,4,"subrata",5,6,7,8,9];
 
 //document.getElementsByClassName("container")   for class    all    //Elements
 //document.getElementsByClassName("container") [0]           //first one
-// document.querySelector(".container")        //for class  for 1st one
+// document.querySelector('.container');  //give the first container class
+// document.querySelectorAll('.container');  //give all container classes
+
  
 
 // FirstContainer.innerHTML                                    //for Id
@@ -298,7 +300,7 @@ let myLovelyString="Subrata is a good good boy";
 
 //Date
 
-// let myDate= new Date();
+let myDate= new Date( );
 // console.log(myDate);  //eg:  Thu Jun 24 2021 01:21:52 GMT+0530 (India Standard Time)
 
 //Date methods
@@ -314,11 +316,14 @@ let myLovelyString="Subrata is a good good boy";
 //DOM=Document object model manipulation
 //we can use document to access html page
 
-document.getElementById('click').style.border='2px solid blue' //works on id 'click' //to terget this 'click' id
+//document.location
+
+// document.getElementById('click').click()
+document.getElementById('click').style.border='4px solid green' //works on id 'click' //to terget this 'click' id
 
 let elem = document.getElementById('click');  //works on id 'click'    //to terget this 'click' id
 // console.log(elem);  //<button id="click" style="border: 2px solid blue;">Click me</button>
-
+  
 let elemclass = document.getElementsByClassName('container'); //work on container classes
 // console.log(elemclass);  
 
@@ -348,15 +353,24 @@ elemclass[1].classList.add("text-success");   //after creating it is effecting n
 // tn=document.getElementsByTagName('button');
 // console.log(tn); //show all the buttons available
 
+
 tn1=document.getElementsByTagName('div');
 // console.log(tn1); //show all the div available
 
 createdElement = document.createElement('p'); //create a paragraph createdElement
-createdElement.innerText="this is a created para" //inner texts of this  paragraph
+createdElement.innerText="this is a created appended paragraph1 " //inner texts of this  paragraph
+tn1[0].appendChild(createdElement); //give this  createdElement inside tn1[0]
+
+createdElement = document.createElement('p'); //create a paragraph createdElement
+createdElement.innerText="this is a created appended paragraph 2" //inner texts of this  paragraph
+tn1[0].appendChild(createdElement); //give this  createdElement inside tn1[0]
+
+createdElement = document.createElement('p'); //create a paragraph createdElement
+createdElement.innerText="this is a created appended paragraph3" //inner texts of this  paragraph
 tn1[0].appendChild(createdElement); //give this  createdElement inside tn1[0]
 
 createdElement1 = document.createElement('b'); //create a bold createdElement1
-createdElement1.innerText="this is a created bold" //inner texts of this  paragraph
+createdElement1.innerText="this is a created replaced Element bold" //inner texts of this  paragraph
 tn1[0].replaceChild(createdElement1,createdElement); //replace createdElement by createdElement1 inside tn1[0]
 
 //removeChild(element);--->removes an element
@@ -367,7 +381,6 @@ tn1[0].replaceChild(createdElement1,createdElement); //replace createdElement by
 //document.links
 //document.images
 //document.domain
-
 //Selectng using query
 
 sel=document.querySelector('.container');  //give the first container class
@@ -378,9 +391,9 @@ sel1=document.querySelectorAll('.container');  //give all container classes
 
 // Events in JavaScript
 // this functoin is calles from html button id =click,go to html code to view
-// function clicked(){
-//     console.log('the button was clicked');
-// }
+function clicked(){
+    console.log('Hello subrata, the button was clicked javascript line 396');
+}
 
 // window.onload= function(){ 
 //                              //run this function after loading
@@ -389,24 +402,25 @@ sel1=document.querySelectorAll('.container');  //give all container classes
 // }
 
 // FirstContainer.addEventListener('click',function(){
-//     //addEventListener first arg=event ,2nd arg= functiion to call each time of that event
-//  //  document.querySelectorAll('.container')[1].innerHTML="<b> we have clicked,2nd container elemnts changed and bold</b>" 
-//     //it will make bold to 2nd cotainer class elwment when clicked on first container
+//     // addEventListener first arg=event ,2nd arg= functiion to call each time of that event
+// //   document.querySelectorAll('.container')[1].innerHTML="<b> we have clicked,2nd container elemnts changed and bold</b>" 
+//     // it will make bold to 2nd cotainer class elwment when clicked on first container
 //     console.log("clicked on container"); //if click anywhere on hole container but previous onclick only for button clck
 // })
 
 // FirstContainer.addEventListener('mouseover',function(){
 //     //addEventListener first arg=event ,2nd arg= functiion to call each time of that event
-//     console.log("mouse moving on container"); //if click anywhere on hole container but previous onclick only for button clck
+//     console.log("mouse moving on container"); //if move anywhere on hole container
+                                                 //if we use onclick that will only be for button click
 // })
 
 // FirstContainer.addEventListener('mouseout',function(){
-//     console.log("mouse out of container"); //if click anywhere on hole container but previous onclick only for button clck
+//     console.log("mouse out of container"); //if move anywhere on hole container
 // })
 
-//mouseclick,mouseup,mousedown, 
+//mouseclick,mouseup,mousedown, mouseover,mouseout,window.onload
 
- let prevHTML=document.querySelectorAll('.container')[1].innerHTML;
+let  prevHTML=document.querySelectorAll('.container')[1].innerHTML;
 
 // FirstContainer.addEventListener('mouseup',function(){
 //     document.querySelectorAll('.container')[1].innerHTML=prevHTML;
@@ -426,27 +440,29 @@ sel1=document.querySelectorAll('.container');  //give all container classes
 // }
 
 summ=(a,b)=>{      //Aroow functiion also doing the same work as previous function
-    return a+b;  //we use this version inside codes isteasd writing previous bigger version
+    return a+b;  //we use this version inside codes isteasd writing previous bigger version keyword function not needed
 }
 
 
 //setTimeout and setInterval
-logKaro= ()=>{ 
-    document.querySelectorAll('.container')[1].innerHTML="<b>set interrval fired</b>" ;
-    // console.log("I AM YOOUR LOG ");
-    setTimeout(logKaro1,2000);
-}
+    // logKaro= ()=>{           //function
+    //     document.querySelectorAll('.container')[1].innerHTML="<b>set interrval fired</b>" ;
+    //     console.log("I AM YOOUR LOG ");
+    //     setTimeout(logKaro1,2000);  //(function-to-call,delay)
+    // }
 
-logKaro1= ()=>{ 
-    document.querySelectorAll('.container')[1].innerHTML=prevHTML;
-    // console.log("I AM YOOUR LOG1 ");
-}
+    // logKaro1= ()=>{ 
+    //     document.querySelectorAll('.container')[1].innerHTML=prevHTML;
+    //     console.log("I AM YOOUR LOG1 ");
+    // } 
 
-// setTimeout(logKaro,2000); //arg1=function which will run arg2=delay milliseconds
+    // setTimeout(logKaro,2000); //arg1=function which will run arg2=delay milliseconds
 
-// bandhKaro=setInterval(logKaro,4000); //do repeatedly same work 
+//setInterval(logKaro,4000); //do repeatedly same work-logkaro in  every 4s
+// bandhKaro=setInterval(logKaro,4000); //cleverly we set an id with it for future operation on it
 //to stop it(if neccessary) i use bandhKaro (not mandatory),bandhKaro return an id and if i give it to clearInterval(clr) then it stops
 //clearInterval and clearTimeout to stop setInterval and setTimeout
+//clearInterval(bandhKaro);
 
 //JavaScript local storage
 //localStorage.setItem('name','subrata'),localStorage,localStorage.getItem('name'),localStorage.clear()
@@ -473,4 +489,4 @@ logKaro1= ()=>{
 
 //Template literals - Backticks
 a=34;
-// console.log(`this is my ${a}`); //a will work as replace to varible  altough inside string //after version 5 not sigle quote use backticks
+// console.log(`this is my ${a}`); //a will work as replace to varible  altough inside string //after version 5  // not sigle quote use backticks
